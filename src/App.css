@@ -1,0 +1,57 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+.play-area {
+  height: 60vh;
+  width: 95vw;
+  border: 1px solid #000;
+  border-radius: 5px;
+  display: flex;
+  overflow: hidden;
+}
+.play-area-actual {
+  height:45vh;
+  width: 100%;
+  border: 1px dotted #00f;
+  display: flex;
+  align-items: end;
+}
+.dino {
+  height: 60px;
+  width: 30px;
+  border: 1px solid red;
+  margin-left: 4vw;
+}
+.jump {
+  animation-name: jump;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  /* animation-timing-function: linear; */
+}
+@keyframes jump {
+  /* 0% { transform: translateY(0);} */
+  16% {transform: translateY(-65px);}
+  25% {transform: translateY(-65px);}
+  /* 100% {transform: translateY(0) ;} */
+  /* 0% {translate: 0} */
+  /* 50% {translate: 0 -60px} */
+  /* 100% {translate: 0 } */
+}
+
+.cactus {
+  /* height: 30px; */
+  /* width: 15px; */
+  background: linear-gradient(40deg,#0f0,#f71);
+}
+.slide-cactus {
+  animation-name: slide;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes slide {
+  0% { transform: translateX(85vw);}
+  100% {transform: translateX(-15vw)}
+}
