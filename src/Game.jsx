@@ -5,7 +5,7 @@ export default function Game() {
 
   function handleClick(e) {
     const dino = document.querySelector(".dino");
-    if (e.type === "click" || e.code === "Space" || e.code === "Enter") {
+    if (e.type === "mousedown" || e.code === "Space" || e.code === "Enter") {
       dino.classList.remove("jump");
       void dino.offsetWidth;
       dino.classList.add("jump");
@@ -14,27 +14,30 @@ export default function Game() {
   // const [rando,setRando] = useState(0);
   useEffect(() => {
 
-    const gaps = [50,1000,1200,2000];
-    const interval = setTimeout(() => {
-      const cactusHeight = Math.floor(Math.random()*4)*10;
+    const gaps = [30,30,3000,2000];
+    function createCactus() {
+      const cactusHeight = ( 1 + Math.floor(Math.random()*4))*1.5;
       const actualPlayArea = document.querySelector(".play-area-actual");
       // setRando(value);
       console.log(cactusHeight);
       const cactus = document.createElement("div");
       cactus.classList.add("cactus","slide-cactus");
-
-      cactus.style.height = `${cactusHeight}px`;
-      cactus.style.width = `${(cactusHeight)/2}px`;
+  
+      cactus.style.height = `${cactusHeight}vh`;
+      cactus.style.width = `${(cactusHeight)/2}vw`;
 
       actualPlayArea.appendChild(cactus)
-      setTimeout(()=> actualPlayArea.removeChild(cactus),3900);
-    },gaps[Math.floor(Math.random()*4)]);
-    return () => clearTimeout(interval);
+      setTimeout(()=> actualPlayArea.removeChild(cactus),3950);
+      setTimeout(createCactus, gaps[Math.floor(Math.random()*4)])
+    }
+    createCactus();
+    // return () => clearTimeout(interval);
   },[]);
   // setInterval(()=>{setRando(Math.floor(Math.randon()*5));console.log(rando)},1000);
 
-  document.addEventListener("click",handleClick);
-  document.addEventListener("keydown",handleClick);
+  document.addEventListener("mousedown",handleClick);
+  document.addEventListener("keypress",handleClick);
+  document.addEventListener("touchstart",handleClick)
   return(
     <>
       <div class="play-area">
