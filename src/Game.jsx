@@ -16,8 +16,8 @@ export default function Game() {
   useEffect (()=> {
     const score_area = document.querySelector(".score-area");
 
-    if(!gameRunsRef.current){
-      clearInterval(scoreIntervalRef);
+    if(!gameRuns){
+      clearInterval(scoreIntervalRef.current);
       scoreIntervalRef.current = null;
 
       if(score_area) {
@@ -38,7 +38,7 @@ export default function Game() {
         clearInterval(scoreIntervalRef.current);
         scoreIntervalRef.current = null;
     }
-  },[gameRuns,score]);
+  },[gameRuns]);
 
 
   
@@ -61,8 +61,8 @@ export default function Game() {
     const actualPlayArea = document.querySelector(".play-area-actual");
     let cactusTimeOut;
     function createCactus() {
-      if(!gameRunsRef.current) return;
-      if(gameRunsRef.current) {
+      if(!gameRuns) return;
+      // if(gameRunsRef.current) {
          console.log("#2",gameRunsRef) 
         const cactusHeight = ( 1 + Math.floor(Math.random()*4))*1.5;
         // setRando(value);
@@ -74,9 +74,14 @@ export default function Game() {
         cactus.style.width = `${(cactusHeight)/2}vw`;
 
         actualPlayArea.appendChild(cactus)
-        setTimeout(()=> actualPlayArea.removeChild(cactus),3950);
+        setTimeout(()=> {
+          if(actualPlayArea.contains(cactus)) {
+            actualPlayArea.removeChild(cactus);
+          }
+        },3950);
+
         cactusTimeOut = setTimeout(createCactus, gaps[Math.floor(Math.random()*4)])
-      }
+      // }
     }
     createCactus();
 
