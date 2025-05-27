@@ -85,7 +85,7 @@ function handleClick(e) {
           if(actualPlayArea.contains(cactus)) {
             actualPlayArea.removeChild(cactus);
           }
-        },3950);
+        },3550);
 
         cactusTimeOut = setTimeout(createCactus, gaps[Math.floor(Math.random()*4)])
       // }

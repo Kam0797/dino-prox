@@ -30,8 +30,8 @@
   height: 28vh;
   max-height: 60px;
   width: 18px;
-  border: 1px solid red;
-  margin-left: 4vw;
+  /* border: 1px solid red; */
+  margin-left: 7vw;
 }
 .jump {
   animation-name: jump;
@@ -41,8 +41,8 @@
 }
 @keyframes jump {
   /* 0% { transform: translateY(0);} */
-  30% {transform: translateY(-17vh);}
-  35% {transform: translateY(-17vh);}
+  30% {transform: translateY(-15vh);}
+  35% {transform: translateY(-15vh);}
   /* 95% {transform: translateY(0vh);} */
   /* 100% {transform: translateY(0) ;} */
   /* 0% {translate: 0} */
@@ -60,11 +60,11 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  border: 1px solid blue; 
+  border: 1px dotted #aaaaaa; 
 }
 .slide-cactus {
   animation-name: slide;
-  animation-duration: 4s;
+  animation-duration: 3.6s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
