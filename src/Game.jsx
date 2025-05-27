@@ -27,7 +27,7 @@ export default function Game() {
       return;
     }
     else {
-      if (score_area.style.paddingLeft != "75%") score_area.style.paddingLeft = "75%";
+      if (score_area.style.paddingLeft != "55%") score_area.style.paddingLeft = "55%";
       console.log("#1",gameRunsRef.current)
       scoreIntervalRef.current = setInterval(()=> {
         setScore(prev => prev+2);
